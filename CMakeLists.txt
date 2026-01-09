@@ -3,7 +3,9 @@ project(AKFSFSimulation)
 
 set(CMAKE_CXX_STANDARD 11)
 
-find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+find_package(SDL2 REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package (Eigen3 REQUIRED NO_MODULE)
 
 set(SRC_CPP
     src/main.cpp
@@ -19,9 +21,12 @@ add_executable(${PROJECT_NAME}
         ${SRC_CPP}
         )
 
+include_directories(/opt/homebrew/include)
+link_directories(/opt/homebrew/lib)
+
 target_link_libraries(${PROJECT_NAME}
-        SDL2
-        SDL2_ttf
+        SDL2::SDL2
+        SDL2_ttf::SDL2_ttf
         Eigen3::Eigen
         )
 

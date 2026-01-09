@@ -41,6 +41,37 @@ This project will use the Ubuntu 64 20.04.2.0 LTS VM C++ development environment
  ```
  ./AKFSF-Simulation
  ```
+
+## Setup for MacOS Compatability ##
+
+0. Install the dependencies
+
+```bash
+brew install sdl2
+brew install sdl2_ttf
+brew install eigen@3
+```
+
+1. Clone the repository
+```bash
+git clone https://github.com/aliaydinkucukcollu/AKFSF-Simulation-CPP.git
+```
+
+2. Setup the cmake build and compile the code
+
+```bash
+cd AKFSF-Simulation-CPP
+mkdir build
+cd build
+cmake -DCMAKE_PREFIX_PATH=$(brew --prefix) ..
+make
+```
+
+3. You should now be able to and run the estimation simulator
+```bash
+./AKFSF-Simulation
+```
+
 ### Project Structure ###
 There are 6 main files of interest:
 * kalmanfilter_lkf_student.cpp
